@@ -1,0 +1,22 @@
+<html>
+  <head>
+
+    <script type="text/javascript" src="https://yicetfy.github.io/collegeapplications_js.js"></script>
+    <link rel="stylesheet" type="text/css" href="https://yicetfy.github.io/collegestyle.css" />
+
+  </head>
+  
+  <body id='body_html'></body>
+  
+  
+  <script>
+    const onDataLoaded = (body_html) => {
+      const e20Content = body_html.feed.entry.find((entry) => entry.title.$t == 'C2').content.$t
+      document.getElementById('body_html').innerHTML = e20Content
+    }
+
+  </script>
+  
+  <script src="https://spreadsheets.google.com/feeds/cells/1Neh-OSmFNKMF4EwOm0CEanCy71q1vvuqIb0LkPJhfEY/1/public/basic?alt=json-in-script&callback=onDataLoaded"></script>
+  
+</html>
