@@ -1,15 +1,3 @@
-/*
-
-Notes re accordioning of sections: 
-
-- Need to learn how to do nested accordions
-
-Regarding the left-plus symbols: https://www.w3schools.com/cssref/pr_pos_right.asp
-
-Accordion: 
-https://www.w3schools.com/howto/howto_js_accordion.asp
-
-*/
 
 
 @import url(//fonts.googleapis.com/css?family=PT+Serif|PT+Serif:b|PT+Serif:i|PT+Sans|PT+Sans:b);
@@ -25,7 +13,7 @@ https://www.w3schools.com/howto/howto_js_accordion.asp
 	--left-col-width-info:   10rem;
 	--center-col-width-info: 28rem;
 
-	--right-col-width:  automatic;
+	--right-col-width:  28rem;
 	--right-col-min-width: 28rem;
 
 	--right-col-left-padding: 2rem;
