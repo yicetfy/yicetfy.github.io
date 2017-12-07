@@ -1,5 +1,4 @@
 
-
 @import url(//fonts.googleapis.com/css?family=PT+Serif|PT+Serif:b|PT+Serif:i|PT+Sans|PT+Sans:b);
 
 :root{
@@ -127,9 +126,9 @@ h2 a[id] {
 
 p {
   max-width: 52rem;
-  line-height: 1.5rem;
+  line-height: 1.3rem;
   margin-top: 1.4rem;
-/*   margin-bottom: 1.4rem; */
+  margin-bottom: 0rem;
   padding-right: 0;
 /*   vertical-align: baseline; */
 }
