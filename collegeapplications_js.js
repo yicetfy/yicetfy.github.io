@@ -30,13 +30,20 @@ $(document).ready(function() {
 //     });
 // });
 
-//show/hide all notes
+//hide all notes
 $(document).ready(function() {
-	$(".toggle-content-notes").hide(); // this automatically hides upon pageload
-	$(".toggle-all-notes").click(function() {
-		$(".toggle-content-notes").slideToggle("slow");
-		$(".toggle-title-notes").toggleClass('active-notes');
+	$(".toggle-content-notes").hide(); //  automatically hide all upon pageload
+	
+	$(".show-all-notes").click(function() { // show all notes
+		$(".toggle-content-notes").slideDown("slow");
+		$(".toggle-title-notes").addClass('active-notes');
 	});
+
+	$(".hide-all-notes").click(function() { // hide all notes
+		$(".toggle-content-notes").slideUp("slow"); 
+		$(".toggle-title-notes").removeClass('active-notes');
+	});
+	
 });
 
 // this works for toggling notes by clicking row; but does it work if links in row?
