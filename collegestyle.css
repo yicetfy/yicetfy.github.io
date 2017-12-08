@@ -134,30 +134,32 @@ p {
 }
 
 a {
-	text-decoration: underline double; 
+	text-decoration: underline dotted; 
 /* 	color: var(--link-color); */
 	color: var(--text-color);
-/* 	word-break: break-all; */
+	  	word-wrap: break-word;
 	
-  max-width: 50rem;
+/*   max-width: 50rem;
   overflow: hidden;
   overflow-wrap: break-word;
   text-overflow: ellipsis;
-  white-space: nowrap;
-  display: inline-block;
-  vertical-align: text-top;
+  white-space: nowrap; */
+/*   display: inline-block; */
+/*   vertical-align: text-top; */
 }
-a:not(:hover) {
+a:hover {
 	text-decoration: none; 
-	text-decoration: underline solid; 
+	text-decoration: underline double; 
+	  	word-wrap: break-word;
 
-	max-width: 50rem;
+
+/* 	max-width: 50rem;
 	overflow: hidden;
 	overflow-wrap: break-word;
 	text-overflow: ellipsis;
-	white-space: nowrap;
-	display: inline-block;
-	vertical-align: text-top;
+	white-space: nowrap; */
+/* 	display: inline-block; */
+/* 	vertical-align: text-top; */
 }
 
 
@@ -206,6 +208,12 @@ div.quote:before {
 .source{
   display: inline-block;
   width: 5rem;
+}
+/* for spacing the source section */
+.source-link{
+  display: inline-block;
+  max-width: 50rem;
+	vertical-align: text-top;
 }
 
 
