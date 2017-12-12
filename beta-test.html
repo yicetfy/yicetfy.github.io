@@ -7,39 +7,32 @@
   
   <body>
     
-    <div align="right">
+  <div align="right">
     <!-- College applications, organized.<br> -->
-    <a href="">Suggest an edit</a> | <span class="show-all-notes"><a> Show All Info</a></span> | <span class="hide-all-notes"><a> Hide All Info</a></span> 
-    </div>
-    testing 3
-  
-    <div id='body_html'></div>
+    <a href="">Suggest an edit</a> | <span class="show-all-notes"><a> Show All Info</a></span> | <span class="hide-all-notes"><a> Hide All Info</a></span>
+  </div>
+
+    testing 4!
+  <div id='body_html'></div>
     
   </body>
-  
-  
-  <script>
-
-      // Define spreadsheet URL.
-      var mySpreadsheet = 'https://docs.google.com/spreadsheets/d/1Neh-OSmFNKMF4EwOm0CEanCy71q1vvuqIb0LkPJhfEY/edit#gid=1594100149';
-
-      // Load an entire worksheet.
-      $('#body_html').sheetrock({
-        url: mySpreadsheet
-      });
-
-  </script>
-  
   
 </html>
 
 <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js'></script>
 <script src='https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js'></script>
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-sheetrock/1.1.4/dist/sheetrock.min.js"></script>
-
-<script src="https://chriszarate.github.io/sheetrock/dist/sheetrock.min.js"></script>
-
 <script type="text/javascript" src="https://yicetfy.github.io/collegeapplications_js.js"></script>
 
+<!-- Load jQuery and Sheetrock from CDNJS -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-sheetrock/1.1.4/dist/sheetrock.min.js"></script>
+
+<script>
+// Define spreadsheet URL.
+      var mySpreadsheet = 'https://docs.google.com/spreadsheets/d/1Neh-OSmFNKMF4EwOm0CEanCy71q1vvuqIb0LkPJhfEY/edit#gid=1594100149';
+      // Load an entire worksheet.
+      $('#body_html').sheetrock({
+        url: mySpreadsheet
+      });
+</script>
 
