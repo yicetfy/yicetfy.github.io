@@ -3,6 +3,7 @@
 <html>
 <head>
 
+<<<<<<< HEAD
 	<link rel="stylesheet" type="text/css" href="https://yicetfy.github.io/collegestyle2.css">
 
 	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery-sheetrock/1.1.4/dist/sheetrock.min.js"></script>
@@ -10,10 +11,81 @@
 	<!-- Load jQuery and Sheetrock from CDNJS -->
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-sheetrock/1.1.4/dist/sheetrock.min.js"></script>
+=======
+  
+ 
+  
+    
+      <link rel="stylesheet" type="text/css" href="https://yicetfy.github.io/collegestyle2.css">
+    
+  
+    
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery-sheetrock/1.1.4/dist/sheetrock.min.js"></script>
+    
+  
+>>>>>>> parent of f37efb4... Update beta-test-3.html
 
 	<style type="text/css"></style>
 
+<<<<<<< HEAD
 	<title> v4 </title>
+=======
+  <title> by tpantin</title>
+
+  
+    
+
+
+
+
+<script type='text/javascript'>//<![CDATA[
+window.onload=function(){
+// This is to animate the internal link scrolling, using jQuery
+$('a[href^="#"]').click(function () {
+    $('html, body').animate({
+        scrollTop: $('[name="' + $.attr(this, 'href').substr(1) + '"]').offset().top
+    }, 500);
+
+    return false;
+});
+
+
+//This is to allow some things to fade-in late
+$("table.deadlines tbody tr td:last-child, table.info tbody tr td:last-child").delay(1000).animate({"opacity": "1"}, 2000);
+
+
+//Accordion 
+$(document).ready(function() {
+    // $(".toggle-content").hide(); // this automatically hides upon pageload
+    $(".toggle-title").click(function() {
+        $(this).next(".toggle-content").slideToggle("slow");
+        $(this).toggleClass('active');
+    });
+});
+
+//Accordion for notes
+// $(document).ready(function() {
+// 	$(".toggle-content-notes").hide(); // this automatically hides upon pageload
+// 	$(".toggle-title-notes").click(function() {
+//         $(this).next(".toggle-content-notes").slideToggle("slow");
+//         $(this).toggleClass('active-notes');
+//     });
+// });
+
+//hide all notes
+$(document).ready(function() {
+	$(".toggle-content-notes").hide(); //  automatically hide all upon pageload
+	
+	$(".show-all-notes").click(function() { // show all notes
+		$(".toggle-content-notes").slideDown("slow");
+		$(".toggle-title-notes").addClass('active-notes');
+	});
+
+	$(".hide-all-notes").click(function() { // hide all notes
+		$(".toggle-content-notes").slideUp("slow"); 
+		$(".toggle-title-notes").removeClass('active-notes');
+	});
+>>>>>>> parent of f37efb4... Update beta-test-3.html
 	
 	<script type='text/javascript'>//<![CDATA[
 		window.onload=function(){
@@ -75,6 +147,17 @@
 
 </body>
 
+<<<<<<< HEAD
+=======
+
+
+<!-- Load jQuery and Sheetrock from CDNJS -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-sheetrock/1.1.4/dist/sheetrock.min.js"></script>
+
+
+
+>>>>>>> parent of f37efb4... Update beta-test-3.html
 <script>
 // Define spreadsheet URL.
       var mySpreadsheet = 'https://docs.google.com/spreadsheets/d/1Neh-OSmFNKMF4EwOm0CEanCy71q1vvuqIb0LkPJhfEY/edit#gid=1594100149';
