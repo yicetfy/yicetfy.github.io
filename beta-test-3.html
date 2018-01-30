@@ -6,7 +6,7 @@
  
   
     
-      	<link rel="stylesheet" type="text/css" href="https://yicetfy.github.io/collegestyle2.css">
+      	<!-- <link rel="stylesheet" type="text/css" href="https://yicetfy.github.io/collegestyle2.css"> --> 
     
   
     
@@ -20,10 +20,732 @@
   
 
   <style type="text/css">
+	  
+	  
+@import url(//fonts.googleapis.com/css?family=PT+Serif|PT+Serif:b|PT+Serif:i|PT+Sans|PT+Sans:b);
+
+:root{
+        
+        /*         --full-table-width: 38rem; */
+        --rem-font-size:                         12px;
+        
+        --max-width:                                 80rem;
+        
+        --text-box-width:                 34rem;
+        
+        --left-col-width:                  14rem;
+        --left-col-min-width:   14rem;
+
+        --center-col-width:                 10rem;
+        --center-col-min-width: 8rem;
+
+/*         --left-col-width-info:   10rem; */
+        --center-col-width-info:         28rem;
+        --center-col-min-width-info: 20rem;
+
+        --right-col-width:  28rem;
+        --right-col-min-width: 28rem;
+
+        --right-col-left-padding: 2rem;
+        --right-col-bottom-padding: 1rem;
+
+        --background-color: #fcfcfc;
+        --text-color: #333333;
+        /*   --text-color: green; */
+
+        --blockquote-background-color: #f2f2f2;
+        --blockquote-border-color: grey;
+
+        --link-color: maroon;
+        --alert-color: #FFD2D4;
+
+        --notes-font-family: Helvetica, "PT Sans Narrow", Calibri, sans-serif;
+        --notes-font-size: .9rem;
+        --notes-color: #999999;
+        
+         --body-font: "PT Sans", sans-serif;
+
+        --show-notes: block;
+/*                 --show-notes: none; */
+
+
+}
+  
+html {
+/*    min-width: 1040px; */
+/*           width: 1400px; */
+        box-sizing: border-box; /* re box sizing see https://css-tricks.com/box-sizing/ */
+        font-size: var(--rem-font-size);
+}
+*, *:before, *:after {
+    box-sizing: inherit;
+}
+
+body {
+  font-family: var(--body-font);
+  background: var(--background-color);
+  color: var(--text-color);
+  margin: 2rem 1rem 2rem 1rem;
+  position: relative;
+/*   width: 1400px; */
+}
+
+h1 {
+        font-size: 30rem;
+        font-weight: bold;
+        margin: .75em 0em 0em 0em;
+        text-transform: uppercase;
+        letter-spacing: -.03em;
+}
+
+h2 {
+  font-size: 2.2rem;
+  font-weight: bold;
+        margin: .25em 0em 0.25em 0em;
+/*   letter-spacing: -1px; */
+}
+
+h3 {
+  font-size: 1.6rem;
+        border-top: 1px solid var(--text-color);
+        color: var(--text-color);
+        font-weight: bold;
+        margin: .25em 0em 0.25em 0em;
+        text-indent: .1rem;
+        line-height: 1.5em;
+
+/*   letter-spacing: 0px; */
+}
+
+H1,H2{
+        color: var(--text-color);
+        border-top: .15em solid var(--text-color);
+/*         text-indent: 0.1rem; */
+/*         line-height: 1.5em; */
+/*         width: var(--header-underline-width); */
+}
+
+/* This is to add collapsible plusses and minuses in front of headers */
+/* h1:before,
+h2:before,
+h3:before {
+  content: "–";
+  color: #ccc;
+  right: 100%;
+  padding: 0 1rem;
+  position: absolute;
+        text-decoration: none !important;
+}   */
+
+/*  h1:after,
+h2:after {
+  content: "#";
+  color: #ccc;
+  padding: 0 1rem;
+  position: absolute;
+        text-decoration: none !important;
+}  */
+
+h1 a[name],
+h1 a[id],
+h2 a[name],
+h2 a[id] {
+  color: #ccc;
+  right: 100%;
+/*   margin: 0 2rem; */
+  position: absolute;
+}
+
+p {
+  max-width: 52rem;
+  line-height: 1.3rem;
+  margin-top: 1.4rem;
+  margin-bottom: 0rem;
+  padding-right: 0;
+/*   vertical-align: baseline; */
+}
+
+a {
+        text-decoration: underline /*dotted */; 
+        text-decoration-skip: ink;
+        /*         color: var(--link-color); */
+        color: var(--text-color);
+        word-wrap: break-word;
+}
+a:hover {
+        text-decoration: none; 
+        text-decoration: underline double; 
+                  word-wrap: break-word;
+
+
+/*         max-width: 50rem;
+        overflow: hidden;
+        overflow-wrap: break-word;
+        text-overflow: ellipsis;
+        white-space: nowrap; */
+/*         display: inline-block; */
+/*         vertical-align: text-top; */
+}
+
+
+/* a.button {
+        border-width: 1px;
+        color: red !important;
+} */
+
+
+div.quote {
+/*         font-style: italic !important; */
+  font-family: serif;
+  background: var(--blockquote-background-color);
+  padding: .3em .3em .3em .5em; 
+        margin: .3em 0em .3em 0em;
+        border-left: .25em solid var(--blockquote-border-color);;
+        quotes: "\201C""\201D";
+}
+div.quote:before {
+  content: open-quote;
+        color: var(--blockquote-border-color);
+  font-size: 2em;
+  line-height: 0.1em;
+  margin-right: 0.05em;
+  vertical-align: -0.3em;
+}
+/* div.quote:after {
+  content: close-quote;
+  font-size: 2em;
+  line-height: 0.1em;
+  margin-left: 0.1em;
+  vertical-align: -0.4em;
+        color: var(--blockquote-border-color);
+} */
+
+/* blockquote {
+    background: #ddd;
+    padding:.5rem;
+    border-bottom: .5rem solid white;
+    font-size: 1rem !important;
+    line-height: 1.2em;
+    font-family: "PT Serif", serif;
+} */
+
+/* for spacing the source section */
+.source{
+  display: inline-block;
+  width: 5rem;
+}
+/* for spacing the source section */
+.source-link{
+        display: inline-block;
+        max-width: 50rem;
+        vertical-align: text-top;
+}
+
+.alert{
+        background: var(--alert-color);
+}
+
+/* .table-footer {
+        margin-top: .5rem;
+        width: var(--full-table-width);
+        text-align: right;
+} */
+
+.box-outline{
+        border: 3px solid var(--text-color);
+        margin: .5rem 0rem .5rem 2.2rem;
+        padding: .5rem;
+        display: table;
+/*         text-align: center; */
+/*          vertical-align: middle;  */
+/*         display: inline-block; */
+}
+.box-outline > a {
+  font-weight: bold;
+}
+
+/* .optional {
+    font-weight: normal !important;
+} */
+
+.light-bubble {
+/*   background: var(--background-color); */
+  color: var(--text-color);
+  font-size: 0.7rem; 
+  line-height: .9em;
+  border: .1em solid var(--text-color);
+        minimum-height: 2em;
+
+  padding: 0.3em 0.3em; 
+  margin: 0.25em 0.2em;  
+  border-radius: 0.5em; 
+  box-decoration-break: clone;  
+  -webkit-box-decoration-break: clone;
+  display: inline-block;
+  
+  font-weight: bold; 
+  text-transform: uppercase; 
+  vertical-align: middle; 
+  }
+
+.dark-bubble {
+  background: var(--text-color);
+  color: var(--background-color);
+  font-size: 0.7rem; 
+  line-height: .9em;
+  border: .2em solid var(--text-color);
+
+  padding: 0.2em 0.3em; 
+  margin: 0.25rem 0.2rem;  
+  border-radius: 0.5em; 
+  box-decoration-break: clone;  
+  -webkit-box-decoration-break: clone;
+  display: inline-block;
+  
+  font-weight: normal; 
+  text-transform: uppercase; 
+  vertical-align: middle; 
+  }
+
+.medium-bubble {
+  background: var(--blockquote-border-color);
+  color: var(--background-color);
+  font-size: 0.7rem; 
+  line-height: .9em;
+  border: .2em solid var(--blockquote-border-color);
+
+  padding: 0.2em 0.3em; 
+  margin: 0.25rem 0.2rem;  
+  border-radius: 0.5em; 
+  box-decoration-break: clone;  
+  -webkit-box-decoration-break: clone;
+  display: inline-block;
+  
+  font-weight: normal; 
+  text-transform: uppercase; 
+  vertical-align: middle; 
+  }
+
+.fade-in {
+    opacity: 0;
+}
+
+.bottom-border {
+        padding-bottom: .5rem;
+        margin-bottom: .5rem;
+        border-bottom: 0.1em solid var(--blockquote-border-color);
+/*         background: red; */
+}
+
+.text-box {
+        width: var(--text-box-width);
+        min-width: var(--text-box-width);
+}
+
+table {
+/*                 min-width: var(--max-width); */
+}
+
+table tr td {
+        /*         debug */
+/*           border: 1px dotted green;  */
+/*            background: lightgreen; */
+/*         min-width: var(--max-width); */
+
+}
+
+/* hover row change color */
+table tr:hover td {
+        background: var(--blockquote-background-color);
+}
+
+/* BORDERLESS */
+table.borderless td {
+    border-color: var(--background-color) !important;
+}
+
+table.deadlines,
+table.info {
+  vertical-align: text-top;
+  margin: 0rem 0rem 0rem 0rem;
+  border-spacing: 0px;
+  /*min-width: 41rem;*/
+}
+
+/* Row-Left headers */
+table.deadlines tbody tr td:first-child {
+        font-family: "PT Sans", sans-serif;
+        font-weight: bold;
+        font-size: 1.1rem;
+        line-height: 1.1em;
+        vertical-align: text-top;
+        text-align: left;
+        padding-bottom: var(--right-col-bottom-padding);
+        padding-left: 0.2rem;
+        padding-right: 1rem;
+        padding-top: 0.4rem;
+}
+
+/* Column-Top headers */
+table.deadlines tbody tr:first-child td:nth-last-child(n+2) { /*change back to n+2*/
+        border-bottom: 1px solid var(--text-color);
+        padding-left: 0rem;
+        padding-right: 1.2rem;
+        padding-top: 0.25rem;
+        padding-bottom: .4rem;
+        font-family: "PT Sans", Calibri, sans-serif;
+        font-weight: bold;
+        font-size: 1.1rem;
+        line-height: 1.1em;
+        /*     border-top: 3px solid #333333; */
+        /*     text-align: left; */
+        vertical-align: bottom !important;
+}
+
+/* spacing out second row from table headers */
+table.deadlines tbody tr:nth-child(2) td { 
+        padding-top: 1rem;
+/*         background: pink; */
+}
+
+/*Table cells in middle*/
+table.deadlines tbody tr:nth-child(n+2) td:nth-child(n+2):nth-last-child(n+2) {
+        padding-left: 0rem;
+        padding-right: 1.2rem;
+        padding-top: 0.4rem;
+        padding-bottom: var(--right-col-bottom-padding);
+        vertical-align: text-top;  
+        font-family: "Consolas", monospace;
+        font-size: 0.9rem;
+        line-height: 1.1em;
+
+/*   debug */
+/*   border: 1px dotted green; */
+/*   background: lightgreen; */
+        
+/*         nowrap experiment */
+/*         white-space:nowrap; */
+}
+
+/*Right column*/
+/* table.deadlines tbody tr:nth-child(n+2) td:last-child {
+        font-family: var(--notes-font-family);
+        font-size: var(--notes-font-size);
+        color: var(--notes-color);
+        padding-left: var(--right-col-left-padding);
+        padding-bottom: var(--right-col-bottom-padding);
+        vertical-align: text-top; */
+
+
+        /*Fade-in animate*/
+/*         opacity: 0; */
+
+        /*hiding*/
+        /*         display: var(--show-notes); */
+}
+
+
+/* TABLE FOR INFORMATION */
+
+table.info {
+/*   vertical-align: text-top; */
+/*   text-align: right; */
+/*   margin: 0rem 0rem 0rem 0rem; */
+/*   border-spacing: 0px; */ 
+}
+
+/*Left Column width*/
+table.info tbody tr td:first-child, 
+table.deadlines tbody tr td:first-child {
+        width: var(--left-col-width);
+        min-width: var(--left-col-min-width);
+/*         background: pink; */
+}
+
+/*Deadlines: Center columns width*/
+table.deadlines tbody tr td:nth-child(n+2):nth-last-child(n+2){
+        width: var(--center-col-width);
+        min-width: var(--center-col-min-width);
+}
+
+/*Info: Center columns width*/
+table.info tbody tr td:nth-child(n+2):nth-last-child(n+2) {
+        width: var(--center-col-width-info);
+        min-width: var(--center-col-min-width-info);
+
+        /*                 background: pink; */
+        padding-left: 0rem;
+        padding-right: 0.5rem;
+        padding-top: 0.25rem;
+        padding-bottom: .75rem;
+        text-align: left;
+        vertical-align: text-top;
+
+        font-size: 1rem;
+        line-height: 1.3em;
+}
+
+/*Right column width*/
+table.info tbody tr td:last-child,
+table.deadlines tbody tr td:last-child{
+/*         width: var(--right-col-width); */
+/*         width: 100%; */
+/*         min-width: var(--right-col-min-width); */
+/*                 background: lightblue; */
+}
+
+/* Row-Left headers */
+.info tbody tr td:first-child {
+    font-family: "PT Sans", sans-serif;
+    font-weight: bold;
+    font-size: 1.1rem;
+    line-height: 1.1em;
+    vertical-align: text-top;
+    text-align: left;
+    padding-bottom: 0rem;
+    padding-left: 0.2rem;
+    padding-right: 1rem;
+    padding-top: 0.0rem;
+}
+
+/*Right column*/
+.deadlines tbody tr td:last-child,
+.info tbody tr td:last-child {
+        font-family: var(--notes-font-family);
+        font-size: var(--notes-font-size);
+        color: var(--notes-color);
+        padding-left: var(--right-col-left-padding);
+        padding-bottom: var(--right-col-bottom-padding);
+        vertical-align: text-top;
+
+        /*Fade-in animate*/
+        opacity: 0;
+
+        /*hiding*/
+        /*         display: var(--show-notes); */
+}
+
+
+
+/* END TABLE STYLE?? */
+
+
+/* Accordion */
+.toggle-box {
+    margin-top: 20px;
+}
+
+.toggle-box p {
+    margin: 0;
+    padding: 0;
+}
+
+.toggle-title {
+/*     width: 100%;
+    margin-bottom: 10px;
+    padding: 10px;
+    background: #BBC4D5;
+    border: 1px solid #45536C; */
+    cursor: pointer;
+/*     -moz-border-radius: 6px;
+    -webkit-border-radius: 6px;
+    border-radius: 6px; */
+}
+
+.toggle-title:before {
+        content: "▾";
+        color: #ccc;
+/*         left: 100%; */
+        padding: 0rem 1rem 0rem 0rem;
+/*         position: absolute; */
+        text-decoration: none !important;
+        display: inline-block;
+        width: 3rem;
+}  
+
+.toggle-title:hover,
+.toggle-title:active {
+    background: #000;
+    color: white;
+}
+
+.active {
+    background: #000;
+    color: white;
+}
+
+.active:before {
+  content: "▸";
+  color: var(--blockquote-border-color);
+/*   right: 100%; */
+        padding: 0rem 1rem 0rem 0rem;
+/*   position: absolute; */
+        text-decoration: none !important;
+        
+        display: inline-block;
+        width: 3rem;
+}  
+
+/*
+.active:before {
+  content: "▸";
+  color: var(--blockquote-border-color);
+  padding: 0rem 1rem 0rem 0rem;
+        text-decoration: none !important;
+}  */
+
+.toggle-title a {
+/*     color: #111; */
+}
+
+.toggle-content {
+        margin-left: 3rem;
+/*         max-width: var(--max-width); */
+
+}
+
+/* NOTES TOGGLE */
+
+.toggle-title-notes {
+/*     width: 100%;
+    margin-bottom: 10px;
+    padding: 10px;
+    background: #BBC4D5;
+    border: 1px solid #45536C; */
+    cursor: pointer;
+/*     -moz-border-radius: 6px;
+    -webkit-border-radius: 6px;
+    border-radius: 6px; */
+        
+        width: var(--right-col-min-width);
+        min-width: var(--right-col-min-width);
+
+/*         border: 1px dotted blue;  */
+/*         float: right; */
+}
+
+.toggle-title-notes:before {
+        /*         content: "Show info"; */
+        /*         content: "⊕"; */
+        content: "▹";
+        
+/*         font-size: 1.5rem; */
+/*         text-indent: -1.5rem; */
+
+/*                 vertical-align: text-top !important; */
+/*         vertical-align: top !important; */
+
+        /*   color: var(--notes-color); */
+        /*   right: 100%; */
+/*         padding: 0rem 1rem 0rem 0rem; */
+/*           position: absolute; */
+/*         text-decoration: none !important; */
+/*         display: inline; */
+}  
+
+.toggle-title-notes:hover,
+.toggle-title-notes:active {
+/*     background: green !important; */
+    color: black !important;
+}
+
+.active-notes {
+/*     background: blue !important; */
+/*     color: red !important; */
+}
+
+.active-notes:before {
+        content: "▿";
+        /*         content: "⊗"; */
+/*         font-size: 1.5rem; */
+        /*         font-weight: bold; */
+/*         text-indent: -1.5rem; */
+
+/*         vertical-align: text-top !important; */
+        /*         vertical-align: top !important; */
+
+/*         color: var(--notes-color); */
+/*         padding: 0rem 0rem 0rem 0rem; */
+/*         position: absolute; */
+/*         text-decoration: none !important; */
+/*         display: inline; */
+}  
+
+.toggle-title-notes:before,
+.active-notes:before {
+        font-size: 1rem;
+        text-indent: -2.5rem;
+
+        vertical-align: text-top !important;
+
+        color: var(--notes-color);
+        padding: 0rem 0rem 0rem 0rem;
+
+/*         position: static; */
+/*         position: inherit; */
+/*         position: absolute; */
+/*         position: relative; */
+/*         position: inherit; */
+
+        text-decoration: none !important;
+        display: inline;
+        
+}
+
+/*
+.active:before {
+  content: "▸";
+  color: var(--blockquote-border-color);
+  padding: 0rem 1rem 0rem 0rem;
+        text-decoration: none !important;
+}  */
+
+.toggle-content-notes {
+/*     margin-left: 3em; */
+/*         border: 1px dotted red;  */
+                width: var(--right-col-min-width);
+                min-width: var(--right-col-min-width);
+/*                  float: right; */
+
+
+}
+
+.toggle-off-all-notes{};
+.toggle-by-row{};
+
+
+
+/* Tooltips */
+.tooltip {
+    position: relative;
+    display: inline-block;
+    border-bottom: 1px dotted black;
+}
+
+.tooltip .tooltiptext {
+    visibility: hidden;
+    width: 120px;
+    background-color: black;
+    color: #fff;
+    text-align: center;
+    border-radius: 6px;
+    padding: 5px 0;
+    
+    /* Position the tooltip */
+    position: absolute;
+    z-index: 1;
+    top: -5px;
+    left: 105%;
+}
+
+.tooltip:hover .tooltiptext {
+    visibility: visible;
+}
+
     
   </style>
 
-  <title> v3.2 </title>
+  <title> v3.3 with native style </title>
 
   
     
@@ -112,8 +834,6 @@ $(document).ready(function() {
         url: mySpreadsheet
       });
 </script>
-
-<!-- <script src="https://yicetfy.github.io/collegeapplications_js.js"></script>--> 
   
   <script>
   // tell the embed parent frame the height of the content
