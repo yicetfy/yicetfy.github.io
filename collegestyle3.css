@@ -50,13 +50,7 @@ $menuPaddingLeft: 1em;
   --menuPaddingLeft: 1em;
 }
 
-html {
-  box-sizing: border-box;
-  font-size: var(--rem-font-size);
-  font-family: var(--body-font);
-  box-sizing: border-box; /* re box sizing see https://css-tricks.com/box-sizing/ */
-  font-size: var(--rem-font-size);
-}
+
 *,
 *:before,
 *:after {
@@ -64,6 +58,12 @@ html {
 }
 
 body {
+   box-sizing: border-box;
+  font-size: var(--rem-font-size);
+  font-family: var(--body-font);
+  box-sizing: border-box; /* re box sizing see https://css-tricks.com/box-sizing/ */
+  font-size: var(--rem-font-size);
+  
   width: 100vw;
   height: 100vh;
   overflow: auto;
