@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>College Applications</title>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-sheetrock/1.1.4/dist/sheetrock.min.js"></script>
+    <script src="collegeapplications_js_redo.js"></script>
+
+    <link rel="stylesheet" type="text/css" href="collegestyle2.css">
+</head>
+
+<body id='body_html_DM'>
+    <!--I moved the sheetrock insertion point from here to an independent div, in an attempt to try to get the splash page to come entirely before the nav bar. [[2018-08-16 :: Thu Aug 16, 2018 @ 11:12AM]]-->
+
+    <!-- Splash Page -->
+    <!--
+    <div class="full-vertical">
+        <div class="big">College Applications.
+            <p></p>Simplified and standardized.</div>
+    </div>
+-->
+
+    <div id='body_html'></div>
+
+    <!-- Sheetrock.js insert -->
+    <script>
+        // Define spreadsheet URL.
+        var mySpreadsheet = 'https://docs.google.com/spreadsheets/d/11A1n989DnZdOOPiIKH9xZWzZ28XiaMqiJ9stuEohq-U/edit#gid=0';
+        // Load an entire worksheet.
+        $('#body_html').sheetrock({
+            url: mySpreadsheet
+        });
+    </script>
+
+</body>
+
+</html>

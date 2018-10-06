@@ -1,0 +1,774 @@
+@charset "UTF-8";
+// @import url(https://use.fontawesome.com/releases/v5.2.0/css/all.css);
+@import url(https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css); // Not sure why I need this fa stylesheet too
+// @import url(//fonts.googleapis.com/css?family=PT+Serif|PT+Serif:b|PT+Serif:i|PT+Sans|PT+Sans:b);
+ :root {
+    /* 	--full-table-width: 38rem; */
+    --rem-font-size: 12px;
+    --max-width: 80rem;
+    --text-box-width: 34rem;
+    --left-col-width: 14rem;
+    --left-col-min-width: 14rem;
+    --center-col-width: 10rem;
+    --center-col-min-width: 8rem;
+    /* 	--left-col-width-info:   10rem; */
+    --center-col-width-info: 20rem;
+    --center-col-min-width-info: 20rem;
+    --right-col-width: 20rem;
+    --right-col-min-width: 20rem;
+    --right-col-left-padding: 2rem;
+    --right-col-bottom-padding: 1rem;
+    --background-color: #fcfcfc;
+    --text-color: #333333;
+    /*   --text-color: green; */
+    --blockquote-background-color: #f2f2f2;
+    --blockquote-border-color: grey;
+    --link-color: maroon;
+    --alert-color: #ffd2d4;
+    --notes-font-family: Helvetica, Calibri, sans-serif;
+    --notes-font-size: 0.9rem;
+    --notes-color: #999999;
+    --body-font: "PT Sans", sans-serif;
+    --show-notes: block;
+    /* 		--show-notes: none; */
+    --menuWidth: 14em;
+    --menuPaddingLeft: 1em;
+}
+
+// For narrow screens
+@media only screen and (max-width: 1000px) {
+    body {
+        padding: 0em 0em 0em 0em !important;
+    }
+    .toc {
+        display: none !important;
+    }
+    .contents .toggle-content {
+        margin-left: 0rem !important;
+    }
+    .splashmenu {
+        display: inline-block !important;
+    }
+}
+
+html {
+    box-sizing: border-box;
+    font-size: var(--rem-font-size);
+    font-family: var(--body-font);
+    box-sizing: border-box;
+    /* re box sizing see https://css-tricks.com/box-sizing/ */
+    font-size: var(--rem-font-size);
+}
+
+*,
+*:before,
+*:after {
+    box-sizing: inherit;
+}
+
+body {
+    // min-width: 800px;
+    // width: 1200px;
+    // height: 100vh;
+    overflow: auto;
+    padding: 0em 2em 2em 14em;
+    margin: 0;
+    background: var(--background-color);
+    color: var(--text-color);
+}
+
+.splashmenu {
+    display: none;
+    // position: fixed;
+    left: 0em;
+    // top: 0em;
+    padding: 1em;
+    line-height: 1;
+    // overflow-x: hidden;
+    // overflow-y: auto;
+    height: 100vh;
+    // width: 1000px;
+    background: var(--background-color);
+    // color: var(--background-color);
+}
+
+.splashmenu ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    box-align: center;
+}
+
+.splashmenu ul li {
+    padding-bottom: .75em;
+}
+
+.splashmenu ul li a {
+    display: inline-block;
+    color: var(--text-color);
+    text-decoration: none;
+    font-weight: bold;
+    // transition: all 0.3s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.splashmenu ul li a:hover {
+    text-decoration: underline;
+}
+
+.splashmenu h1 {
+    font-size: 3rem;
+    font-weight: bold;
+    margin: 0em 0em 0em 0em;
+    line-height: 1.15;
+    // text-transform: uppercase;
+    // letter-spacing: -0.03em;
+}
+
+.splashmenu h2 {
+    font-size: 2.2rem;
+    font-weight: bold;
+    // margin: 0.5em 0em 0.25em 0em;
+}
+
+.splashmenu h3 {
+    font-size: 1.6rem;
+    // border-top: 1px solid var(--text-color);
+    // color: var(--text-color);
+    font-weight: bold;
+    // margin: 0.25em 0em 0.25em 0em;
+    // text-indent: 0.1rem;
+    // line-height: 1.5em;
+}
+
+.toc {
+    position: fixed;
+    left: 0em;
+    top: 0em;
+    padding: 1em;
+    width: 14em;
+    line-height: 1;
+    overflow-x: hidden;
+    overflow-y: auto;
+    height: 100%;
+    background: var(--text-color);
+    color: var(--background-color);
+}
+
+.toc h1 {
+    // font-size: 3rem;
+    font-weight: bold;
+    margin: .75em 0em .75em 0em;
+    line-height: 1.15;
+    // text-transform: uppercase;
+    // letter-spacing: -0.03em;
+}
+
+.toc ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.toc ul ul {
+    padding-left: 2em;
+}
+
+.toc ul li a {
+    padding-bottom: .75em;
+    display: inline-block;
+    color: var(--background-color);
+    text-decoration: none;
+    transition: all 0.3s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.toc li a:hover {
+    font-weight: bold;
+}
+
+.toc li.visible>a {
+    color: #111;
+    -webkit-transform: translate(5px);
+    transform: translate(5px);
+}
+
+.toc-marker {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+}
+
+.toc-marker path {
+    /*This is what makes the snake move smoothly*/
+    transition: all 0.3s ease;
+}
+
+//FULL VERTICAL INTRO PAGE STYLE
+.full-vertical {
+    height: 100vh;
+    width: 1000px;
+}
+
+.full-vertical .lefttext {
+    font-size: 1rem;
+    font-weight: bold;
+    text-align: left;
+    position: relative;
+    top: 6em;
+    // transform: translateY(-50%);
+}
+
+.full-vertical .big {
+    font-size: 1rem;
+    font-weight: bold;
+    text-align: center;
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.contents {
+    // width: 1000px;
+    width: 100%;
+    padding: 1em;
+}
+
+.contents h1 {
+    font-size: 3rem;
+    font-weight: bold;
+    margin-top: 1.5em;
+    text-transform: uppercase;
+    line-height: 1.5em;
+    // border-top: 0.15em solid var(--text-color);
+    //The below is to make it black on white [[2018-10-06 :: Sat Oct 6, 2018 @ 04:08PM]]
+    color: var(--background-color);
+    background: var(--text-color);
+    margin-left: -1em;
+    padding-left: 1em;
+    margin-right: -1em;
+    padding-right: 1em;
+}
+
+.contents h2 {
+    color: var(--text-color);
+    font-size: 2.2rem;
+    font-weight: bold;
+    margin: 0.5em 0em 0.25em 0em;
+    line-height: 1.5em;
+    border-top: 0.15em solid var(--text-color);
+}
+
+.contents h3 {
+    font-size: 1.6rem;
+    border-top: 1px solid var(--text-color);
+    color: var(--text-color);
+    font-weight: bold;
+    margin: 0.25em 0em 0.25em 0em;
+    text-indent: 0.1rem;
+    line-height: 1.5em;
+}
+
+.contents h1 a[name],
+.contents h1 a[id],
+.contents h2 a[name],
+.contents h2 a[id] {
+    color: #ccc;
+    right: 100%;
+    position: absolute;
+}
+
+.contents p {
+    max-width: 52rem;
+    line-height: 1.3rem;
+    margin-top: 1.4rem;
+    margin-bottom: 0rem;
+    padding-right: 0;
+    /*   vertical-align: baseline; */
+}
+
+.contents a {
+    text-decoration: underline;
+    font-weight: bold;
+    -webkit-text-decoration-skip: ink;
+    text-decoration-skip: ink;
+    // color: var(--link-color);
+    color: var(--text-color);
+    word-wrap: break-word;
+    target-name: new;
+    target-new: tab;
+}
+
+.contents a:hover {
+    text-decoration: none;
+    font-weight: bold;
+    -webkit-text-decoration: underline double;
+    text-decoration: underline double;
+    word-wrap: break-word;
+    color: var(--link-color);
+    /* 	max-width: 50rem;
+          overflow: hidden;
+          overflow-wrap: break-word;
+          text-overflow: ellipsis;
+          white-space: nowrap; */
+    /* 	display: inline-block; */
+    /* 	vertical-align: text-top; */
+}
+
+.contents ul {
+    margin: 0.5rem 0rem 0.5rem 2.2rem;
+    padding-left: 1.5em;
+}
+
+.contents li {
+    margin: 0;
+    // padding-top: 0.25em;
+}
+
+.contents ul:before {
+    content: "\a";
+    // white-space: pre;
+}
+
+.listbox {
+    border: 3px solid var(--text-color);
+    margin: 0.5rem 0rem 0.5rem 2.2rem !important;
+    padding: 0.5rem 0.5rem 0.5rem 0.5rem !important;
+    display: table;
+    list-style: none;
+}
+
+.numbercircle {
+    display: inline-block !important;
+    line-height: 0px !important;
+    border-radius: 50% !important;
+    border: 2px solid !important;
+    font-size: 1.15em;
+    font-weight: bold !important;
+    color: var(--text-color);
+    background: var(--text-color);
+}
+
+.numbercircle span {
+    display: inline-block !important;
+    padding-top: 50% !important;
+    padding-bottom: 50% !important;
+    margin-left: 4px !important;
+    margin-right: 4px !important;
+    color: var(--background-color);
+}
+
+.contents div.quote {
+    // font-family: serif;
+    // font-size: 1.15em;
+    // line-height: 1.1em;
+    padding: 0.3em 0.3em 0.3em 0.5em;
+    margin: .25em 0em 0.5em 0em;
+    display: block;
+    position: relative;
+    border-left: 1.5em solid var(--blockquote-border-color);
+    border-right: 1px solid var(--blockquote-border-color);
+    border-top: 1px solid var(--blockquote-border-color);
+    border-bottom: 1px solid var(--blockquote-border-color);
+    // left: -1.5em;
+}
+
+.contents div.quote:before {
+    content: "\201C";
+    /*Unicode for Left Double Quote*/
+    /*Font*/
+    font-family: Georgia, serif;
+    font-size: 2em;
+    font-weight: bold;
+    color: white;
+    /*Positioning*/
+    position: absolute;
+    left: -.65em;
+    top: .1em;
+}
+
+.contents .source {
+    display: inline-block;
+    width: 5rem;
+}
+
+.contents .source-link {
+    display: inline-block;
+    max-width: 50rem;
+    vertical-align: text-top;
+}
+
+.contents .alert {
+    background: var(--alert-color);
+}
+
+.contents .box-outline {
+    border: 3px solid var(--text-color);
+    margin: 0.5rem 0rem 0.5rem 2.2rem;
+    padding: 0.5rem;
+    display: table;
+    /* 	text-align: center; */
+    /*  	vertical-align: middle;  */
+    /* 	display: inline-block; */
+}
+
+.contents .box-outline>a {
+    font-weight: bold;
+}
+
+.contents .light-bubble {
+    /*   background: var(--background-color); */
+    color: var(--text-color);
+    font-size: 0.7rem;
+    line-height: 0.9em;
+    border: 0.1em solid var(--text-color);
+    minimum-height: 2em;
+    padding: 0.3em 0.3em;
+    margin: 0.25em 0.2em;
+    border-radius: 0.5em;
+    box-decoration-break: clone;
+    -webkit-box-decoration-break: clone;
+    display: inline-block;
+    font-weight: bold;
+    text-transform: uppercase;
+    vertical-align: top;
+}
+
+.contents .dark-bubble {
+    background: var(--text-color);
+    color: var(--background-color);
+    font-size: 0.7rem;
+    line-height: 0.9em;
+    border: 0.2em solid var(--text-color);
+    padding: 0.2em 0.3em;
+    margin: 0.25rem 0.2rem;
+    border-radius: 0.5em;
+    box-decoration-break: clone;
+    -webkit-box-decoration-break: clone;
+    display: inline-block;
+    font-weight: bold;
+    text-transform: uppercase;
+    vertical-align: top;
+}
+
+.contents .medium-bubble {
+    background: var(--blockquote-border-color);
+    color: var(--background-color);
+    font-size: 0.7rem;
+    line-height: 0.9em;
+    border: 0.2em solid var(--blockquote-border-color);
+    padding: 0.2em 0.3em;
+    margin: 0.25rem 0.2rem;
+    border-radius: 0.5em;
+    box-decoration-break: clone;
+    -webkit-box-decoration-break: clone;
+    display: inline-block;
+    font-weight: bold;
+    text-transform: uppercase;
+    vertical-align: top;
+}
+
+// Trying to add a space before bubbles that disappears if they are first on a new line. The way to do this is rather to put a breaking space after all of the cells that make up the left column of the deadlines tables
+.contents .light-bubble:before,
+.contents .dark-bubble:before,
+.contents .medium-bubble:before {
+    // content: ""; /
+}
+
+.contents .fade-in {
+    opacity: 0;
+}
+
+.contents .bottom-border {
+    padding-bottom: 0.5rem;
+    margin-bottom: 0.5rem;
+    border-bottom: 0.1em solid var(--blockquote-border-color);
+    /* 	background: red; */
+}
+
+.contents .textbox {
+    width: var(--text-box-width);
+    min-width: var(--text-box-width);
+}
+
+.contents table {
+    /* 		min-width: var(--max-width); */
+}
+
+.contents table tr td {
+    /* 	debug */
+    /* 	  border: 1px dotted green;  */
+    /* 	   background: lightgreen; */
+    /* 	min-width: var(--max-width); */
+}
+
+.contents table tr:hover td {
+    background: var(--blockquote-background-color);
+}
+
+.contents table.borderless td {
+    border-color: var(--background-color) !important;
+}
+
+.contents table.deadlines,
+.contents table.info {
+    vertical-align: top;
+    margin: 0rem 0rem 0rem 0rem;
+    border-spacing: 0px;
+    /*min-width: 41rem;*/
+}
+
+.contents table.deadlines tbody tr td:first-child {
+    // font-family: "PT Sans", sans-serif;
+    font-weight: bold;
+    // font-size: 1.1rem;
+    // line-height: 1.1em;
+    vertical-align: top;
+    text-align: left;
+    padding-bottom: var(--right-col-bottom-padding);
+    padding-left: 0.2rem;
+    padding-right: 1rem;
+    // padding-top: 0.4rem;
+}
+
+.contents table.deadlines tbody tr:first-child td:nth-last-child(n + 2) {
+    /*change back to n+2*/
+    border-bottom: 1px solid var(--text-color);
+    padding-left: 0rem;
+    padding-right: 1.2rem;
+    padding-top: 0rem;
+    padding-bottom: 0.4rem;
+    // font-family: "PT Sans", Calibri, sans-serif;
+    font-weight: bold;
+    // font-size: 1.1rem;
+    // line-height: 1.1em;
+    /*     border-top: 3px solid #333333; */
+    /*     text-align: left; */
+    vertical-align: bottom !important;
+}
+
+.contents table.deadlines tbody tr:nth-child(2) td {
+    // Second row of deadlines table, below the headers
+    padding-top: .5rem !important;
+    /* 	background: pink; */
+}
+
+.contents table.deadlines tbody tr:nth-child(n + 2) td:nth-child(n + 2):nth-last-child(n + 2) {
+    padding-left: 0rem;
+    padding-right: 1.2rem;
+    // padding-top: 0.4rem;
+    padding-bottom: var(--right-col-bottom-padding);
+    vertical-align: top;
+    font-family: "Consolas", monospace;
+    // font-size: 0.9rem;
+    // line-height: 1.1em;
+    /*   debug */
+    /*   border: 1px dotted green; */
+    /*   background: lightgreen; */
+    /* 	nowrap experiment */
+    /* 	white-space:nowrap; */
+}
+
+.contents table.info {
+    /*   vertical-align: text-top; */
+    /*   text-align: right; */
+    /*   margin: 0rem 0rem 0rem 0rem; */
+    /*   border-spacing: 0px; */
+}
+
+.contents table.info tbody tr td:first-child,
+.contents table.deadlines tbody tr td:first-child {
+    width: var(--left-col-width);
+    min-width: var(--left-col-min-width);
+    /* 	background: pink; */
+}
+
+.contents table.deadlines tbody tr td:nth-child(n + 2):nth-last-child(n + 2) {
+    width: var(--center-col-width);
+    min-width: var(--center-col-min-width);
+}
+
+.contents table.info tbody tr td:nth-child(n + 2):nth-last-child(n + 2) {
+    width: var(--center-col-width-info);
+    min-width: var(--center-col-min-width-info);
+    // background: pink;
+    padding-left: 0rem;
+    padding-right: 0.5rem;
+    padding-top: 0rem;
+    padding-bottom: 0.75rem;
+    text-align: left;
+    vertical-align: top;
+    font-size: 1rem;
+    // line-height: 1.3em;
+}
+
+.contents table.info tbody tr td:last-child,
+.contents table.deadlines tbody tr td:last-child {
+    width: var(--right-col-width);
+    /* 	width: 100%; */
+    /* 	min-width: var(--right-col-min-width); */
+    /* 		background: lightblue; */
+}
+
+.contents .info tbody tr td:first-child {
+    font-family: "PT Sans", sans-serif;
+    font-weight: bold;
+    // font-size: 1.1rem;
+    // line-height: 1.1em;
+    vertical-align: top;
+    text-align: left;
+    padding-bottom: 0rem;
+    padding-left: 0.2rem;
+    padding-right: 1rem;
+    padding-top: 0rem;
+}
+
+// Made this an optional style applied manually: class="moreinfo" [[2018-08-19 :: Sun Aug 19, 2018 @ 05:14PM]] 
+.contents .deadlines tbody tr td:last-child,
+.contents .info tbody tr td:last-child {
+    // font-family: var(--notes-font-family);
+    // font-size: var(--notes-font-size);
+    // color: var(--notes-color);
+    // padding-left: var(--right-col-left-padding);
+    // padding-bottom: var(--right-col-bottom-padding);
+    // vertical-align: text-top;
+    /*Fade-in animate*/
+    // opacity: 0;
+    /*hiding*/
+    /* 	display: var(--show-notes); */
+}
+
+// Made this an optional style applied manually  [[2018-08-19 :: Sun Aug 19, 2018 @ 05:14PM]] 
+.contents tbody tr td.moreinfo {
+    // font-family: var(--notes-font-family);
+    // font-size: var(--notes-font-size);
+    // color: var(--notes-color);
+    // margin-left: 10rem; // to try to put space to the left of the chevron
+    padding-left: var(--right-col-left-padding);
+    padding-bottom: var(--right-col-bottom-padding);
+    vertical-align: top;
+    /*Fade-in animate*/
+    opacity: 0;
+    /*hiding*/
+    /* 	display: var(--show-notes); */
+    position: relative; // to try to make the position of the nearest relative of the chevron positioned see https://www.w3schools.com/css/css_positioning.asp
+}
+
+.contents .toggle-box {
+    margin-top: 20px;
+}
+
+.contents .toggle-box p {
+    margin: 0;
+    padding: 0;
+}
+
+.contents .toggle-title {
+    /*     width: 100%;
+        margin-bottom: 10px;
+        padding: 10px;
+        background: #BBC4D5;
+        border: 1px solid #45536C; */
+    cursor: pointer;
+    /*     -moz-border-radius: 6px;
+        -webkit-border-radius: 6px;
+        border-radius: 6px; */
+}
+
+.contents .toggle-title:before {
+    // content: "▾"; // Caret down
+    color: var(--blockquote-border-color);
+    /* 	left: 100%; */
+    padding: 0rem 1rem 0rem 0rem;
+    /* 	position: absolute; */
+    text-decoration: none !important;
+    display: inline-block;
+    // width: 3rem;
+}
+
+.contents .toggle-title:hover,
+.contents .toggle-title:active {
+    // background: #000;
+    // color: white;
+}
+
+.contents .active {
+    // background: var(--notes-color);
+    // color: white;
+}
+
+.contents .active:before {
+    content: "▸"; // Caret right
+    // font-family: 'FontAwesome';
+    // content: "\f0da"; // Chevron-up
+    color: var(--blockquote-border-color);
+    /*   right: 100%; */
+    padding: 0rem 1rem 0rem 0rem;
+    /*   position: absolute; */
+    text-decoration: none !important;
+    display: inline-block;
+    width: 3rem;
+}
+
+.contents .toggle-title a {
+    /*     color: #111; */
+}
+
+.contents .toggle-content {
+    // margin-left: 3rem; /* Uncomment this to make sections indent */
+    /* 	max-width: var(--max-width); */
+}
+
+// TOGGLE FOR NOTES
+.contents .toggle-title-notes {
+    cursor: pointer;
+    width: var(--right-col-min-width);
+    min-width: var(--right-col-min-width);
+}
+
+.contents .toggle-title-notes:before {
+    font-family: 'FontAwesome';
+    content: "\f077"; // Chevron-up
+    position: absolute !important;
+    left: 3rem;
+    // top: 3px;
+}
+
+.contents .toggle-title-notes:hover::before,
+.contents .toggle-title-notes:active::before {
+    // background: green !important;
+    // color: black !important;
+    font-family: 'FontAwesome';
+    content: "\f077" + "  More information"; // Chevron-up
+    position: absolute !important;
+    left: 3rem;
+    // top: 3px;
+}
+
+.contents .active-notes {}
+
+.contents .active-notes:hover::before,
+.contents .active-notes:active::before {
+    content: "\f078"; // Chevron-down
+}
+
+.contents .active-notes:before {
+    font-family: 'FontAwesome';
+    content: "\f078"; // Chevron-down
+}
+
+.contents .toggle-title-notes:before,
+.contents .active-notes:before {
+    font-size: 1rem;
+    text-indent: -2.5rem;
+    color: var(--notes-color);
+    padding: 0rem 0rem 0rem 0rem;
+    text-decoration: none !important;
+    display: inline;
+}
+
+.contents .toggle-content-notes {
+    width: var(--right-col-min-width);
+    min-width: var(--right-col-min-width);
+}
