@@ -16,13 +16,11 @@
   --right-col-min-width: 20rem;
   --right-col-left-padding: 2rem;
   --right-col-bottom-padding: 1rem;
-  --background-color: #fcfcfc;
-  --text-color: #333333;
+  --background-color: #ffffff;
+  --text-color: #000000;
   /*   --text-color: green; */
-  --blockquote-background-color: #f2f2f2;
+  --blockquote-background-color: #ffffff;
   --blockquote-border-color: grey;
-  --link-color: maroon;
-  --alert-color: #ffd2d4;
   --notes-font-family: Helvetica, Calibri, sans-serif;
   --notes-font-size: 0.9rem;
   --notes-color: #999999;
@@ -211,6 +209,7 @@ body {
 .contents {
   width: 100%;
   padding: 1em;
+  max-width: var(--max-width);
 }
 
 .contents h1 {
@@ -225,6 +224,8 @@ body {
   padding-left: 1em;
   margin-right: -1em;
   padding-right: 1em;
+  -webkit-margin-after: 0em;
+          margin-block-end: 0em;
 }
 
 .contents h2 {
@@ -250,7 +251,6 @@ body {
 .contents h1 a[id],
 .contents h2 a[name],
 .contents h2 a[id] {
-  color: #ccc;
   right: 100%;
   position: absolute;
 }
@@ -266,9 +266,6 @@ body {
 
 .contents a {
   text-decoration: underline;
-  font-weight: bold;
-  -webkit-text-decoration-skip: ink;
-  text-decoration-skip: ink;
   color: var(--text-color);
   word-wrap: break-word;
   target-name: new;
@@ -276,12 +273,8 @@ body {
 }
 
 .contents a:hover {
-  text-decoration: none;
   font-weight: bold;
-  -webkit-text-decoration: underline double;
-  text-decoration: underline double;
   word-wrap: break-word;
-  color: var(--link-color);
   /* 	max-width: 50rem;
           overflow: hidden;
           overflow-wrap: break-word;
@@ -292,7 +285,7 @@ body {
 }
 
 .contents ul {
-  margin: 0.5rem 0rem 0.5rem 2.2rem;
+  margin: 0.5rem 0rem 0.5rem 0.5rem;
   padding-left: 1.5em;
 }
 
@@ -337,10 +330,10 @@ body {
   margin: .25em 0em 0.5em 0em;
   display: block;
   position: relative;
-  border-left: 1.5em solid var(--blockquote-border-color);
-  border-right: 1px solid var(--blockquote-border-color);
-  border-top: 1px solid var(--blockquote-border-color);
-  border-bottom: 1px solid var(--blockquote-border-color);
+  border-left: 1.5em solid var(--text-color);
+  border-right: 1px solid var(--text-color);
+  border-top: 1px solid var(--text-color);
+  border-bottom: 1px solid var(--text-color);
 }
 
 .contents div.quote:before {
@@ -513,7 +506,6 @@ body {
   padding-right: 1.2rem;
   padding-bottom: var(--right-col-bottom-padding);
   vertical-align: top;
-  font-family: "Consolas", monospace;
   /*   debug */
   /*   border: 1px dotted green; */
   /*   background: lightgreen; */
@@ -682,5 +674,17 @@ body {
 .contents .toggle-content-notes {
   width: var(--right-col-min-width);
   min-width: var(--right-col-min-width);
+  color: #4D4D4D !important;
+}
+
+.contents .toggle-content-notes a {
+  color: #4D4D4D !important;
+}
+
+.contents .toggle-content-notes div.quote {
+  border-left: 1.5em solid var(--blockquote-border-color) !important;
+  border-right: 1px solid var(--blockquote-border-color) !important;
+  border-top: 1px solid var(--blockquote-border-color) !important;
+  border-bottom: 1px solid var(--blockquote-border-color) !important;
 }
 /*# sourceMappingURL=collegestyle2.css.map */
