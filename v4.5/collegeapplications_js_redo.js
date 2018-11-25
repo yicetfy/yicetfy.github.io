@@ -13,14 +13,14 @@
           "opacity": "1"
       }, 2000);
 
-      //Accordion 
-      $(document).ready(function() {
-          // $(".toggle-content").hide(); // this automatically hides upon pageload
-          $(".toggle-title").click(function() {
-              $(this).next(".toggle-content").slideToggle("slow");
-              $(this).toggleClass('active');
-          });
-      });
+      //   //Accordion 
+      //   $(document).ready(function() {
+      //       // $(".toggle-content").hide(); // this automatically hides upon pageload
+      //       $(".toggle-title").click(function() {
+      //           $(this).next(".toggle-content").slideToggle("slow");
+      //           $(this).toggleClass('active');
+      //       });
+      //   });
 
       //hide all notes
       $(document).ready(function() {
