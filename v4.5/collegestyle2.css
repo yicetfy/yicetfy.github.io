@@ -1,5 +1,4 @@
 @charset "UTF-8";
-@import url(https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css);
 :root {
   /* 	--full-table-width: 38rem; */
   --rem-font-size: 12px;
@@ -65,7 +64,7 @@ html {
 
 body {
   overflow: auto;
-  padding: 0em 2em 2em 14em;
+  padding: 0em 0em 2em 14em;
   margin: 0;
   background: var(--background-color);
   color: var(--text-color);
@@ -208,22 +207,21 @@ body {
 
 .contents {
   width: 100%;
-  padding: 1em;
-  max-width: var(--max-width);
+}
+
+.contents section {
+  padding: 0 0 5rem 1rem;
 }
 
 .contents h1 {
   font-size: 3rem;
   font-weight: bold;
-  margin-top: 1.5em;
   text-transform: uppercase;
   line-height: 1.5em;
   color: var(--background-color);
   background: var(--text-color);
-  margin-left: -1em;
-  padding-left: 1em;
-  margin-right: -1em;
-  padding-right: 1em;
+  margin: 0 0 0 -1rem;
+  padding-left: 1rem;
   -webkit-margin-after: 0em;
           margin-block-end: 0em;
 }
@@ -637,28 +635,26 @@ body {
 }
 
 .contents .toggle-title-notes:before {
-  font-family: 'FontAwesome';
-  content: "\f077";
+  content: "＋";
   position: absolute !important;
   left: 3rem;
+  color: black !important;
 }
 
 .contents .toggle-title-notes:hover::before,
 .contents .toggle-title-notes:active::before {
-  font-family: 'FontAwesome';
-  content: "  More information";
+  content: "＋  Show details";
   position: absolute !important;
   left: 3rem;
 }
 
 .contents .active-notes:hover::before,
 .contents .active-notes:active::before {
-  content: "\f078";
+  content: "－";
 }
 
 .contents .active-notes:before {
-  font-family: 'FontAwesome';
-  content: "\f078";
+  content: "－";
 }
 
 .contents .toggle-title-notes:before,
