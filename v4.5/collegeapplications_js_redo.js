@@ -56,3 +56,15 @@
           $('a[href^="http"]').attr('target', '_blank');
       });
   }
+
+  // Show-hide by class
+  function showHide(myclass) {
+      var elems = document.getElementsByClassName(myclass);
+      for (var i = 0; i != elems.length; ++i) {
+          if (elems[i].style.display === "none") {
+              elems[i].style.display = "block";
+          } else {
+              elems[i].style.display = "none";
+          }
+      }
+  }
