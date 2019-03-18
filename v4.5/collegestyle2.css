@@ -70,6 +70,10 @@ body {
   color: var(--text-color);
 }
 
+.show-hide-drafts {
+  display: none;
+}
+
 .splashmenu {
   display: none;
   left: 0em;
