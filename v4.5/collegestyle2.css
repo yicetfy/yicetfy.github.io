@@ -37,10 +37,13 @@
   .toc {
     display: none !important;
   }
+  .splashmenu-wide {
+    display: none !important;
+  }
   .contents .toggle-content {
     margin-left: 0rem !important;
   }
-  .splashmenu {
+  .splashmenu-narrow {
     display: inline-block !important;
   }
 }
@@ -74,7 +77,45 @@ body {
   display: none;
 }
 
-.splashmenu {
+.splashmenu-wide {
+  padding: 0em;
+  height: 100vh;
+  background: var(--background-color);
+}
+
+.splashmenu-wide ul {
+  height: 100%;
+  margin: 0em;
+  padding: 0em;
+}
+
+.splashmenu-wide li {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  text-align: center;
+}
+
+.splashmenu-wide li.first {
+  height: 33%;
+}
+
+.splashmenu-wide li.second {
+  height: 33%;
+}
+
+.splashmenu-wide li.third {
+  height: 33%;
+}
+
+.splashmenu-narrow {
   display: none;
   left: 0em;
   padding: 1em;
@@ -83,41 +124,41 @@ body {
   background: var(--background-color);
 }
 
-.splashmenu ul {
+.splashmenu-narrow ul {
   list-style: none;
   padding: 0;
   margin: 0;
   box-align: center;
 }
 
-.splashmenu ul li {
+.splashmenu-narrow ul li {
   padding-bottom: .75em;
 }
 
-.splashmenu ul li a {
+.splashmenu-narrow ul li a {
   display: inline-block;
   color: var(--text-color);
   text-decoration: none;
   font-weight: bold;
 }
 
-.splashmenu ul li a:hover {
+.splashmenu-narrow ul li a:hover {
   text-decoration: underline;
 }
 
-.splashmenu h1 {
+.splashmenu-narrow h1 {
   font-size: 3rem;
   font-weight: bold;
   margin: 0em 0em 0em 0em;
   line-height: 1.15;
 }
 
-.splashmenu h2 {
+.splashmenu-narrow h2 {
   font-size: 2.2rem;
   font-weight: bold;
 }
 
-.splashmenu h3 {
+.splashmenu-narrow h3 {
   font-size: 1.6rem;
   font-weight: bold;
 }
